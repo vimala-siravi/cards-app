@@ -1,43 +1,30 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userName: ""
-    };
-  }
+const Form = (props) => {
+  const [userName, setUserName] = useState("");
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`https://api.github.com/users/${this.state.userName}`)
+    fetch(`https://api.github.com/users/${userName}`)
       .then((res) => res.json())
       .then((result) => {
-        this.props.onSubmit(result);
-        this.setState({
-          userName: ""
-        });
+        props.onSubmit(result);
+        setUserName("");
       });
   };
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="GitHub username"
-          value={this.state.userName}
-          onChange={(event) =>
-            this.setState({
-              userName: event.target.value
-            })
-          }
-          required
-        />
-        <button>Add Card</button>
-      </form>
-    );
-  }
-}
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="GitHub username"
+        value={userName}
+        onChange={(event) => setUserName(event.target.value)}
+        required
+      />
+      <button>Add Card</button>
+    </form>
+  );
+};
 
 export default Form;
