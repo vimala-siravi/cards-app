@@ -2,14 +2,14 @@
 
 ### Simply enter the github username and click on the Add Card button to display the card of the respective user
 
-![alt text](https://github.com/vimala95/cards-app/blob/master/githubcards.PNG?raw=true)
+![alt text](https://github.com/vimala-siravi/cards-app/blob/master/githubcards.PNG?raw=true)
 
 ## Getting Started
 
 Clone the repo
 
 ```
-https://github.com/vimala95/cards-app.git
+https://github.com/vimala-siravi/cards-app.git
 ```
 
 Install the dependencies
